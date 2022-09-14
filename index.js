@@ -1,6 +1,10 @@
+const chalk = require("chalk");
 var readlineSync = require("readline-sync");
 
-const chalk = require("chalk");
+
+// Coloring different text messages
+const welcome=chalk.yellowBright.bgWhite;
+const question=chalk.red;
 
 var score = 0;
 
@@ -46,7 +50,7 @@ var questions = [{
 function Intro() {
  var userName = readlineSync.question("What's your name? ");
 
-  console.log("Welcome "+ userName + " to Naruto quiz!");
+  console.log(welcome("Welcome "+ userName + " to Naruto quiz!"));
 }
 
 
