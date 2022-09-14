@@ -1,5 +1,4 @@
 var readlineSync = require("readline-sync");
-import chalk from 'chalk';
 
 var score = 0;
 
