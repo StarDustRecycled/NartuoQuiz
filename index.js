@@ -1,5 +1,7 @@
 var readlineSync = require("readline-sync");
 
+const chalk = require("chalk");
+
 var score = 0;
 
 // data of high score
