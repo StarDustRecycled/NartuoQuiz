@@ -3,8 +3,12 @@ var readlineSync = require("readline-sync");
 
 
 // Coloring different text messages
-const welcome=chalk.yellowBright.bgWhite;
-const question=chalk.red;
+const intro = chalk.bgRed.black.bold;
+const welcome=chalk.yellowBright.bold;
+ const questionStyle=chalk.cyan;
+ const currScoreStyle=chalk.magenta;
+const right=chalk.green;
+const wrong=chalk.red;
 
 var score = 0;
 
@@ -48,26 +52,26 @@ var questions = [{
             ];
 // start of the CLI quiz: aka the intro
 function Intro() {
- var userName = readlineSync.question("What's your name? ");
-
-  console.log(welcome("Welcome "+ userName + " to Naruto quiz!"));
+ var userName = readlineSync.question(intro("What's your name? "));
+  console.log(welcome("\n-------------------------"));
+  console.log(welcome("Welcome "+ userName + " to Naruto quiz!\n-------------------------\n"));
 }
 
 
 // play function
 function play(question, answer) {
-  var userAnswer = readlineSync.question(question);
+  var userAnswer = readlineSync.question(questionStyle(question));
 
   if (userAnswer.toLowerCase() === answer.toLowerCase()) { 
-    console.log("Dattebayo!");
+    console.log(right("Dattebayo!"));
     score = score + 1;
     
   } else {
-    console.log("Oops!");
+    console.log(wrong("Oops!"));
    
   }
 
-  console.log("current score: ", score);
+  console.log(currScoreStyle("current score: ", score));
   console.log("---------------------")
 }
 
